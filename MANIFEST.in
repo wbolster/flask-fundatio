@@ -1,0 +1,3 @@
+include *.rst
+recursive-include flask_fundatio/static *
+recursive-include flask_fundatio/templates *
