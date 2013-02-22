@@ -2,6 +2,8 @@ from setuptools import setup
 
 setup(
     name="Flask-Fundatio",
+    description=("Flask extension to integrate the Foundation "
+                 "front-end framework"),
     version='0.1.dev',
     author="Wouter Bolsterlee",
     author_email="uws@xs4all.nl",
