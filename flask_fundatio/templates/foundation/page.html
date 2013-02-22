@@ -6,34 +6,17 @@
 
 <head>
   <meta charset="utf-8" />
-
-  <!-- Set the viewport width to device width for mobile -->
   <meta name="viewport" content="width=device-width" />
-
-  <title>Page Title</title>
-
-  <!-- Included CSS Files, use foundation.css if you do not want minified code -->
-  <link rel="stylesheet" href="stylesheets/foundation.min.css">
-  <link rel="stylesheet" href="stylesheets/app.css">
-
-  <!-- Custom Modernizr for Foundation -->
-  <script src="javascripts/foundation/modernizr.foundation.js"></script>
+  <title>{% block title %}{% endblock title %}</title>
+  <link rel="stylesheet" href="{{ url_for('fundatio.static', filename='stylesheets/foundation.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('fundatio.static', filename='stylesheets/app.css') }} ">
+  <script src="{{ url_for('fundatio.static', filename='javascripts/modernizr.foundation.js') }}"></script>
 </head>
 
 <body>
-  <!-- Page Layout HTML here -->
-
-  <!-- Latest version of jQuery -->
-  <script src="javascripts/jquery.js"></script>
-
-  <!-- Included JS Files (Unminified) -->
-  <!-- [JS Files] -->
-  <!-- We include all the unminified JS as well. Uncomment to use them instead -->
-
-  <!-- Included JS Files (Minified) -->
-  <script src="javascripts/foundation.min.js"></script>
-
-  <!-- Initialize JS Plugins -->
-  <script src="javascripts/app.js"></script>
+  {%- block body %}{% endblock body -%}
+  <script src="{{ url_for('fundatio.static', filename='javascripts/jquery.js') }}"></script>
+  <script src="{{ url_for('fundatio.static', filename='javascripts/foundation.min.js') }}"></script>
+  <script src="{{ url_for('fundatio.static', filename='javascripts/app.js') }}"></script>
 </body>
 </html>
