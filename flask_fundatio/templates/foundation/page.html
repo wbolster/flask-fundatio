@@ -7,7 +7,7 @@
   <title>{% block title %}{{ title }}{% endblock title %}</title>
   <link rel="stylesheet" href="{{ url_for('fundatio.static', filename='stylesheets/foundation.min.css') }}">
   <link rel="stylesheet" href="{{ url_for('fundatio.static', filename='stylesheets/app.css') }} ">
-  {%- block stylesheets %}{% endblock stylesheets -%}
+  {% block stylesheets %}{% endblock stylesheets %}
   <script src="{{ url_for('fundatio.static', filename='javascripts/modernizr.foundation.js') }}"></script>
 </head>
 <body>
