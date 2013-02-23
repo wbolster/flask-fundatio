@@ -22,3 +22,11 @@
 </a>
 
 {%- endmacro %}
+
+
+{% macro alert(type=None, close=False) -%}
+<div class="alert-box{% if type %} {{ type }}{% endif %}">
+  {{ caller() }}
+  {% if close %}<a href="" class="close">&times;</a>{% endif %}
+</div>
+{%- endmacro %}
