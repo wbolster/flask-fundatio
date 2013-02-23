@@ -1,0 +1,24 @@
+{% macro button(
+    content,
+    id=None,
+    href=None,
+    size=None,
+    type=None,
+    style=None,
+    attributes=None) -%}
+
+<a class="button
+  {%- if size %} {{ size }}{% endif -%}
+  {%- if type %} {{ type }}{% endif -%}
+  {%- if style %} {{ style }}{% endif -%}
+  "
+  {%- if id %} id="{{ id }}"{% endif -%}
+  {%- if href %} href="{{ href }}"{% endif -%}
+  {%- if attributes -%}
+    {% for name, value in attributes.items() %} {{ name }}="{{ value}}"{% endfor %}
+  {%- endif -%}
+  >
+  {{- content -}}
+</a>
+
+{%- endmacro %}
