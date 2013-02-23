@@ -1,0 +1,68 @@
+{% extends "fundatio/page.html" %}
+{% from "fundatio/helpers.html" import alert, button %}
+
+{% block content %}
+
+<div class="row">
+  <div class="twelve columns">
+
+    <h1>Flask-Fundatio demo</h1>
+
+    <hr>
+
+    <h2>Buttons</h2>
+
+    {{ button("Button") }}
+    {{ button("Hyperlinked", href="#") }}
+    {{ button("With id", id="foo") }}
+    {{ button("Custom attributes", attributes={'name': "foo"}) }}
+
+    <h3><small>Button types</small></h3>
+    {{ button("Normal") }}
+    {{ button("Secondary", type="secondary") }}
+    {{ button("Success", type="success") }}
+    {{ button("Alert", type="alert") }}
+
+    <h3><small>Button sizes</small></h3>
+    {{ button("Tiny", size="tiny") }}
+    {{ button("Small", size="small") }}
+    {{ button("Normal") }}
+    {{ button("Large", size="large") }}
+
+    <h3><small>Button styles</small></h3>
+    {{ button("Normal") }}
+    {{ button("Radius", style="radius") }}
+    {{ button("Round", style="round") }}
+
+    <hr>
+
+    <h2>Alert boxes</h2>
+
+    <h3><small>Alert box types</small></h3>
+
+    <div class="row">
+      <div class="six columns">
+        {% call alert() %}Normal alert box{% endcall %}
+        {% call alert(type="secondary") %}Secondary alert box{% endcall %}
+      </div>
+      <div class="six columns">
+        {% call alert(type="success") %}Success alert box{% endcall %}
+        {% call alert(type="alert") %}Alert box{% endcall %}
+      </div>
+    </div>
+
+    <h3><small>With close button</small></h3>
+
+    <div class="row">
+      <div class="six columns">
+        {% call alert(type="success", close=True) %}Success alert box (with close button){% endcall %}
+      </div>
+      <div class="six columns">
+        {% call alert(type="secondary", close=True) %}Secondary alert box (with close button){% endcall %}
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{% endblock content %}
