@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width" />
-  <title>{% block title %}{% endblock title %}</title>
+  <title>{% block title %}{{ title }}{% endblock title %}</title>
   <link rel="stylesheet" href="{{ url_for('fundatio.static', filename='stylesheets/foundation.min.css') }}">
   <link rel="stylesheet" href="{{ url_for('fundatio.static', filename='stylesheets/app.css') }} ">
   {%- block stylesheets %}{% endblock stylesheets -%}
