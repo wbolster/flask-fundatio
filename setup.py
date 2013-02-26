@@ -12,5 +12,6 @@ setup(
     install_requires=[
         "Flask >= 0.9",
     ],
-    packages=['flask_fundatio']
+    packages=['flask_fundatio'],
+    include_package_data=True,
 )
