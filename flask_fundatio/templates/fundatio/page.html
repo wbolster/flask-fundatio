@@ -12,7 +12,7 @@
 </head>
 <body>
   {%- block body %}
-    {%- block content %}{% endblock content -%}
+    {%- block content %}{{ content }}{% endblock content -%}
     <script src="{{ url_for('fundatio.static', filename='javascripts/jquery.js') }}"></script>
     <script src="{{ url_for('fundatio.static', filename='javascripts/foundation.min.js') }}"></script>
     <script src="{{ url_for('fundatio.static', filename='javascripts/app.js') }}"></script>
