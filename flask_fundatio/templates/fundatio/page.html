@@ -13,10 +13,19 @@
 <body>
   {%- block body %}
     {%- block content %}{{ content }}{% endblock content -%}
-    <script src="{{ url_for('fundatio.static', filename='javascripts/jquery.js') }}"></script>
-    <script src="{{ url_for('fundatio.static', filename='javascripts/foundation.min.js') }}"></script>
-    <script src="{{ url_for('fundatio.static', filename='javascripts/app.js') }}"></script>
-    {%- block javascripts %}{% endblock javascripts -%}
+
+    {% set js_jquery = url_for('fundatio.static', filename='js/vendor/jquery-1.9.1.min.js') -%}
+    {% set js_zepto = url_for('fundatio.static', filename='js/vendor/zepto-1.0.min.js') -%}
+    {% if config.FUNDATIO_JAVASCRIPT_LIBRARY == 'auto' %}
+    <script>document.write('<script src="' + ('__proto__' in {} ? '{{ js_zepto }}' : '{{ js_jquery }}') + '"><\/script>')</script>
+    {% elif config.FUNDATIO_JAVASCRIPT_LIBRARY == 'jquery' %}
+    <script src="{{ js_jquery }}"></script>
+    {% elif config.FUNDATIO_JAVASCRIPT_LIBRARY == 'zepto' %}
+    <script src="{{ js_zepto }}"></script>
+    {% endif %}
+    <script src="{{ url_for('fundatio.static', filename='js/foundation.min.js') }}"></script>
+    {% block javascripts %}{% endblock javascripts %}
+    <script>$(document).foundation();</script>
   {% endblock body -%}
 </body>
 </html>
