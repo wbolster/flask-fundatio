@@ -16,6 +16,11 @@ class Fundatio(object):
             self.init_app(app)
 
     def init_app(self, app):
+        """Initialise the `app` for use with :py:class:`~Fundatio`.
+
+        This method is automatically invoked if an `app` instance is
+        passed to the :py:class:`~Fundatio` constructor.
+        """
         blueprint = Blueprint(
             'fundatio',
             __name__,
