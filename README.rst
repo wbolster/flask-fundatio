@@ -7,7 +7,7 @@ Flask-Fundatio
 This is a `Flask`_ extension that provides integration with the `Foundation`_
 front-end framework.
 
-This extension bundles Foundation 3.2.5 with the default CSS.
+This extension bundles Foundation 4.0.8 with the default CSS.
 
 .. _`Flask`: http://flask.pocoo.org/
 .. _`Foundation`: http://foundation.zurb.com/
