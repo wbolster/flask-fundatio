@@ -6,6 +6,8 @@ from __future__ import absolute_import
 
 from flask import Blueprint
 
+JAVASCRIPT_LIBRARIES = ('auto', 'jquery', 'zepto')
+
 
 class Fundatio(object):
     """Flask-Fundatio extension class"""
@@ -20,7 +22,20 @@ class Fundatio(object):
 
         This method is automatically invoked if an `app` instance is
         passed to the :py:class:`~Fundatio` constructor.
+
+        Fundatio uses the following configuration variables:
+
+        * ``FUNDATIO_JAVASCRIPT_LIBRARY``
         """
+
+        javascript_library = app.config.setdefault(
+            'FUNDATIO_JAVASCRIPT_LIBRARY', JAVASCRIPT_LIBRARIES[0])
+        if not javascript_library in JAVASCRIPT_LIBRARIES:
+            raise ValueError(
+                "Invalid 'FUNDATIO_JAVASCRIPT_LIBRARY' value in config; "
+                "must be one of %r, but found %r"
+                % (JAVASCRIPT_LIBRARIES, javascript_library))
+
         blueprint = Blueprint(
             'fundatio',
             __name__,
