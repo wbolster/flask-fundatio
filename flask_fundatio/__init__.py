@@ -7,6 +7,7 @@ from __future__ import absolute_import
 from flask import Blueprint
 
 JAVASCRIPT_LIBRARIES = ('auto', 'jquery', 'zepto')
+DEFAULT_JAVASCRIPT_LIBARY = 'jquery'
 
 
 class Fundatio(object):
@@ -29,7 +30,7 @@ class Fundatio(object):
         """
 
         javascript_library = app.config.setdefault(
-            'FUNDATIO_JAVASCRIPT_LIBRARY', JAVASCRIPT_LIBRARIES[0])
+            'FUNDATIO_JAVASCRIPT_LIBRARY', DEFAULT_JAVASCRIPT_LIBARY)
         if not javascript_library in JAVASCRIPT_LIBRARIES:
             raise ValueError(
                 "Invalid 'FUNDATIO_JAVASCRIPT_LIBRARY' value in config; "
