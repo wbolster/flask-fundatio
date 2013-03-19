@@ -24,7 +24,7 @@
     <script src="{{ js_zepto }}"></script>
     {% endif %}
     <script src="{{ url_for('fundatio.static', filename='js/foundation.min.js') }}"></script>
-    {% block javascripts %}{% endblock javascripts %}
+    {% block javascript %}{% endblock javascript %}
     <script>$(document).foundation();</script>
   {% endblock body -%}
 </body>
