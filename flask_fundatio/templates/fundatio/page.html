@@ -15,7 +15,7 @@
     {%- block content %}{{ content }}{% endblock content -%}
 
     {% set js_jquery = url_for('fundatio.static', filename='js/vendor/jquery-1.9.1.min.js') -%}
-    {% set js_zepto = url_for('fundatio.static', filename='js/vendor/zepto-1.0.min.js') -%}
+    {% set js_zepto = url_for('fundatio.static', filename='js/vendor/zepto-1.0.js') -%}
     {% if config.FUNDATIO_JAVASCRIPT_LIBRARY == 'auto' %}
     <script>document.write('<script src="' + ('__proto__' in {} ? '{{ js_zepto }}' : '{{ js_jquery }}') + '"><\/script>')</script>
     {% elif config.FUNDATIO_JAVASCRIPT_LIBRARY == 'jquery' %}
