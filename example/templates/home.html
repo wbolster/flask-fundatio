@@ -1,5 +1,5 @@
 {% extends "fundatio/page.html" %}
-{% from "fundatio/helpers.html" import alert, button %}
+{% from "fundatio/helpers.html" import alert %}
 
 {% block content %}
 
@@ -7,32 +7,6 @@
   <div class="twelve columns">
 
     <h1>Flask-Fundatio demo</h1>
-
-    <hr>
-
-    <h2>Buttons</h2>
-
-    {{ button("Button") }}
-    {{ button("Hyperlinked", href="#") }}
-    {{ button("With id", id="foo") }}
-    {{ button("Custom attributes", attributes={'name': "foo"}) }}
-
-    <h3><small>Button types</small></h3>
-    {{ button("Normal") }}
-    {{ button("Secondary", type="secondary") }}
-    {{ button("Success", type="success") }}
-    {{ button("Alert", type="alert") }}
-
-    <h3><small>Button sizes</small></h3>
-    {{ button("Tiny", size="tiny") }}
-    {{ button("Small", size="small") }}
-    {{ button("Normal") }}
-    {{ button("Large", size="large") }}
-
-    <h3><small>Button styles</small></h3>
-    {{ button("Normal") }}
-    {{ button("Radius", style="radius") }}
-    {{ button("Round", style="round") }}
 
     <hr>
 
