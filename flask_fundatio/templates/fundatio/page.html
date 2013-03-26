@@ -23,9 +23,16 @@
     {% elif config.FUNDATIO_JAVASCRIPT_LIBRARY == 'zepto' %}
     <script src="{{ js_zepto }}"></script>
     {% endif %}
+
+    {% block javascript_foundation -%}
     <script src="{{ url_for('fundatio.static', filename='js/foundation.min.js') }}"></script>
+    {%- endblock javascript_foundation %}
+
     {% block javascript %}{% endblock javascript %}
+
+    {% block javascript_foundation_init -%}
     <script>$(document).foundation();</script>
+    {%- endblock javascript_foundation_init %}
   {% endblock body -%}
 </body>
 </html>
