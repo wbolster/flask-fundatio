@@ -15,15 +15,17 @@
 
     {% block content %}{{ content }}{% endblock content %}
 
-    {% set js_jquery = url_for('fundatio.static', filename='js/vendor/jquery-1.9.1.min.js') %}
-    {% set js_zepto = url_for('fundatio.static', filename='js/vendor/zepto-1.0.js') %}
-    {% if config.FUNDATIO_JAVASCRIPT_LIBRARY == 'auto' %}
-    <script>document.write('<script src="' + ('__proto__' in {} ? '{{ js_zepto }}' : '{{ js_jquery }}') + '"><\/script>')</script>
-    {% elif config.FUNDATIO_JAVASCRIPT_LIBRARY == 'jquery' %}
-    <script src="{{ js_jquery }}"></script>
-    {% elif config.FUNDATIO_JAVASCRIPT_LIBRARY == 'zepto' %}
-    <script src="{{ js_zepto }}"></script>
-    {% endif %}
+    {% block javascript_library %}
+      {% set js_jquery = url_for('fundatio.static', filename='js/vendor/jquery-1.9.1.min.js') %}
+      {% set js_zepto = url_for('fundatio.static', filename='js/vendor/zepto-1.0.js') %}
+      {% if config.FUNDATIO_JAVASCRIPT_LIBRARY == 'auto' %}
+      <script>document.write('<script src="' + ('__proto__' in {} ? '{{ js_zepto }}' : '{{ js_jquery }}') + '"><\/script>')</script>
+      {% elif config.FUNDATIO_JAVASCRIPT_LIBRARY == 'jquery' %}
+      <script src="{{ js_jquery }}"></script>
+      {% elif config.FUNDATIO_JAVASCRIPT_LIBRARY == 'zepto' %}
+      <script src="{{ js_zepto }}"></script>
+      {% endif %}
+    {% endblock javascript_library %}
 
     {% block javascript_foundation %}
       <script src="{{ url_for('fundatio.static', filename='js/foundation.min.js') }}"></script>
