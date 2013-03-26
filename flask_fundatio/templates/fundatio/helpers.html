@@ -1,6 +1,6 @@
-{% macro alert(type=None, close=False) -%}
-<div data-alert class="alert-box{% if type %} {{ type }}{% endif %}">
+{% macro alert(type=None, close=False) %}
+<div data-alert class="alert-box{{ " %s"|format(type) if type }}">
   {{ caller() }}
   {% if close %}<a href="" class="close">&times;</a>{% endif %}
 </div>
-{%- endmacro %}
+{% endmacro %}
