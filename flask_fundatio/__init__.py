@@ -6,8 +6,45 @@ from __future__ import absolute_import
 
 from flask import Blueprint
 
+try:
+    import wtforms
+    wtforms  # silence flake8
+    has_wtforms = True
+except ImportError:
+    has_wtforms = False
+
+
 JAVASCRIPT_LIBRARIES = ('auto', 'jquery', 'zepto')
 DEFAULT_JAVASCRIPT_LIBARY = 'jquery'
+
+
+def check_wtforms():
+    if not has_wtforms:
+        raise RuntimeError(
+            "Flask-Fundatio form rendering support is not available "
+            "(could not import 'wtforms')")
+
+
+def add_css_class(d, key, value):
+    """Helper function to set or add a CSS class to a dict key"""
+    if 'class' in d:
+        d['class'] += ' error'
+    else:
+        d['class'] = 'error'
+
+
+def field_kwargs_filter(d, field):
+    check_wtforms()
+    if field.errors:
+        add_css_class(d, 'class', 'error')
+    return d
+
+
+def label_kwargs_filter(d, field):
+    check_wtforms()
+    if field.errors:
+        add_css_class(d, 'class', 'error')
+    return d
 
 
 class Fundatio(object):
@@ -46,4 +83,12 @@ class Fundatio(object):
             static_url_path='%s/foundation' % app.static_url_path,
             template_folder='templates',
         )
+
+        blueprint.add_app_template_filter(
+            field_kwargs_filter,
+            name='_fundatio_form_field_kwargs')
+        blueprint.add_app_template_filter(
+            label_kwargs_filter,
+            name='_fundatio_form_label_kwargs')
+
         app.register_blueprint(blueprint)

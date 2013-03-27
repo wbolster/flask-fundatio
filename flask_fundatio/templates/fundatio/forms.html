@@ -1,0 +1,10 @@
+{% macro field(field) %}
+  {{ field(**kwargs|_fundatio_form_field_kwargs(field)) }}
+  {% for error in field.errors %}
+    <small class="error">{{ error }}</small>
+  {% endfor %}
+{% endmacro %}
+
+{% macro label(field) %}
+  {{ field.label(**kwargs|_fundatio_form_label_kwargs(field)) }}
+{% endmacro %}
