@@ -17,7 +17,12 @@ except ImportError:
 JAVASCRIPT_LIBRARIES = frozenset(('auto', 'jquery', 'zepto'))
 DEFAULT_JAVASCRIPT_LIBARY = 'jquery'
 
-ICON_SETS = frozenset(('general', 'general_enclosed', 'accessibility', 'social'))
+ICON_SETS = frozenset((
+    'general',
+    'general_enclosed',
+    'accessibility',
+    'social'
+))
 
 
 def check_wtforms():
