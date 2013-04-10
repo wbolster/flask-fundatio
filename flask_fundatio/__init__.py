@@ -14,8 +14,10 @@ except ImportError:
     has_wtforms = False
 
 
-JAVASCRIPT_LIBRARIES = ('auto', 'jquery', 'zepto')
+JAVASCRIPT_LIBRARIES = frozenset(('auto', 'jquery', 'zepto'))
 DEFAULT_JAVASCRIPT_LIBARY = 'jquery'
+
+ICON_SETS = frozenset(('general', 'general_enclosed', 'accessibility', 'social'))
 
 
 def check_wtforms():
@@ -73,6 +75,13 @@ class Fundatio(object):
                 "Invalid 'FUNDATIO_JAVASCRIPT_LIBRARY' value in config; "
                 "must be one of %r, but found %r"
                 % (JAVASCRIPT_LIBRARIES, javascript_library))
+
+        icon_sets = app.config.setdefault('FUNDATIO_ICON_SETS', [])
+        if set(icon_sets) - ICON_SETS:
+            raise ValueError(
+                "Invalid 'FUNDATIO_ICON_SETS' value in config; "
+                "valid list values are: %s"
+                % ', '.join(ICON_SETS))
 
         blueprint = Blueprint(
             'fundatio',

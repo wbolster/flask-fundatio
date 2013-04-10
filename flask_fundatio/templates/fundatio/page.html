@@ -7,7 +7,14 @@
   <title>{% block title %}{{ title }}{% endblock title %}</title>
   <link rel="stylesheet" href="{{ url_for('fundatio.static', filename='css/normalize.css') }}">
   <link rel="stylesheet" href="{{ url_for('fundatio.static', filename='css/foundation.css') }}">
+  {% if config.FUNDATIO_ICON_SETS %}
+    {% for name in config.FUNDATIO_ICON_SETS %}
+      <link rel="stylesheet" href="{{ url_for('fundatio.static', filename=('css/%s_foundicons.css' % name)) }}">
+    {% endfor %}
+    <link rel="stylesheet" href="{{ url_for('fundatio.static', filename='css/foundicons.css') }}">
+  {% endif %}
   {% block stylesheets %}{% endblock stylesheets %}
+  <script src="{{ url_for('fundatio.static', filename='js/vendor/custom.modernizr.js') }}"></script>
   <script src="{{ url_for('fundatio.static', filename='js/vendor/custom.modernizr.js') }}"></script>
 </head>
 <body>
