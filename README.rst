@@ -11,6 +11,23 @@ Flask-Fundatio
 This extension bundles Foundation 4.2.3 with the default CSS, and the Foundicon
 icon sets.
 
+
+Installation
+============
+
+You can install Flask-Fundatio directly from *PyPI* into your *virtualenv*::
+
+    pip install flask-fundatio
+
+You can also install it from source::
+
+    python setup.py install
+    
+Alternatively, if you want to hack on it::
+
+    python setup.py develop
+
+
 Usage
 =====
 
