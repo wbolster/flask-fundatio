@@ -8,4 +8,6 @@ TODO
 
 * Pagination helpers
 
+* Documentation
+
 * Many other things
