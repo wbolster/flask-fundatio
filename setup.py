@@ -4,7 +4,7 @@ setup(
     name="Flask-Fundatio",
     description=("Flask extension to integrate the Foundation "
                  "front-end framework"),
-    version='0.1.dev',
+    version='0.1',
     author="Wouter Bolsterlee",
     author_email="uws@xs4all.nl",
     url="https://github.com/wbolster/flask-fundatio",
