@@ -39,4 +39,3 @@ base template.
 .. image:: https://d2weczhvl823v0.cloudfront.net/wbolster/flask-fundatio/trend.png
    :alt: Bitdeli badge
    :target: https://bitdeli.com/free
-
