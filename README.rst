@@ -34,3 +34,9 @@ Usage
 The ``example/`` directory contains a simple example of a Flask application. It
 shows how to use this extension to render a simple page template that extends a
 base template.
+
+
+.. image:: https://d2weczhvl823v0.cloudfront.net/wbolster/flask-fundatio/trend.png
+   :alt: Bitdeli badge
+   :target: https://bitdeli.com/free
+
